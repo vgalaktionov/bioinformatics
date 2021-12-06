@@ -1,4 +1,6 @@
+import { countPattern } from '../../lib';
+
 export default function ba1a(input: string[]) {
-    console.log('BA1A');
-    console.log(input);
+    const [text, pattern] = input;
+    return countPattern(text, pattern);
 }

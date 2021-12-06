@@ -11,12 +11,12 @@ async function loader() {
     const impl = (await import(`./exercises/ch${chapter}/${exercise}.ts`)).default;
     if (!impl) throw new Error(`No implementation for ${exercise} found!`);
 
-    const input = fs.readFileSync(0, 'utf-8');
+    const input = fs.readFileSync(0, 'ascii').trim().split(/\s+/);
     if (!input || !input.length) throw new Error(`No input passed!`);
 
     console.info('Running with input:\n', input);
 
-    impl(input.trim().split(/\s+/));
+    fs.writeFileSync(1, impl(input));
 }
 
 loader();
