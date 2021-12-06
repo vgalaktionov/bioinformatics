@@ -8,11 +8,13 @@ async function fetchProblem(exercise: string) {
     const sampleDataset = dom.window.document
         .querySelector('#sample-dataset + .codehilite>pre')
         ?.innerHTML.trim()
-        .split(/\s/);
+        .split(/\s/)
+        .map((d) => (d.match(/^\d+$/) ? +d : d));
     const sampleOutput = dom.window.document
         .querySelector('#sample-output + .codehilite>pre')
         ?.innerHTML.trim()
-        .split(/\s/);
+        .split(/\s/)
+        .map((d) => (d.match(/^\d+$/) ? +d : d));
     return [sampleDataset, sampleOutput];
 }
 
@@ -35,7 +37,12 @@ function writeImpl(exercise: string, chapter: string) {
     );
 }
 
-function writeTest(exercise: string, chapter: string, sampleDataset?: string[], sampleOutput?: string[]) {
+function writeTest(
+    exercise: string,
+    chapter: string,
+    sampleDataset?: (string | number)[],
+    sampleOutput?: (string | number)[],
+) {
     const dir = `./exercises/ch${chapter}`;
     if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
