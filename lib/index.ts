@@ -6,3 +6,5 @@ export function countPattern(text: string, pattern: string) {
     }
     return n;
 }
+
+export type Nucleotide = 'A' | 'C' | 'T' | 'G';
