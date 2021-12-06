@@ -8,8 +8,7 @@ async function fetchProblem(exercise: string) {
     const sampleDataset = dom.window.document
         .querySelector('#sample-dataset + .codehilite>pre')
         ?.innerHTML.trim()
-        .split(/\s/)
-        .map((d) => (d.match(/^\d+$/) ? +d : d));
+        .split(/\s/);
     const sampleOutput = dom.window.document
         .querySelector('#sample-output + .codehilite>pre')
         ?.innerHTML.trim()
