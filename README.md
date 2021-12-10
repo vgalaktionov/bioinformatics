@@ -10,5 +10,13 @@ E.g:
 
 ```bash
 # pbpaste is how you write clipboard contents to the terminal on MacOS
-pbpaste | npm start ba1a
+pbpaste | python main.py run ba1a
+```
+
+## Generating an exercise scaffold
+
+The entrypoint expects the name of the exercise as the first and only CLI argument.
+
+```bash
+python main.py generate ba1b
 ```
