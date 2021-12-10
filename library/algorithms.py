@@ -27,4 +27,4 @@ def frequent_words(text: str, k: int, min_freq: int = 0):
     sorted_freqs = sorted(frequencies.items(), key=itemgetter(1), reverse=True)
     highest = sorted_freqs[0][1]
 
-    return {kmer for kmer, _ in takewhile(lambda t: t[1] == highest and t[1] >= min_freq, sorted_freqs)}
+    return {str(kmer) for kmer, _ in takewhile(lambda t: t[1] == highest and t[1] >= min_freq, sorted_freqs)}
