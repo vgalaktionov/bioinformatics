@@ -1,6 +1,4 @@
-def pattern_count(text: str, pattern: str):
-    last_index = len(text) - len(pattern) + 1
-    return sum(text[i : i + len(pattern)] == pattern for i in range(last_index))
+from library.algorithms import pattern_count
 
 
 def ba1a(params: list[str]):
@@ -8,7 +6,7 @@ def ba1a(params: list[str]):
     return pattern_count(text, pattern)
 
 
-def test_ba1a():
+def test_ba1a(benchmark):
     expected = 2
-    result = ba1a(["GCGCG", "GCG"])
+    result = benchmark(ba1a, ["GCGCG", "GCG"])
     assert expected == result

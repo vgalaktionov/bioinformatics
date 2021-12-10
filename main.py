@@ -40,6 +40,11 @@ def generate(exercise: str):
     except ValueError:
         pass
 
+    path = Path(__file__).parent / "exercises" / f"{exercise}.py"
+    if path.exists():
+        logger.warning(f"path {path} exists, not generating!")
+        return
+
     with open(Path(__file__).parent / "exercises" / f"{exercise}.py", "w") as f:
         f.write(
             f"""
@@ -52,9 +57,9 @@ def {exercise}(params: list[str]):
     return foobar(text, pattern)
 
 
-def test_{exercise}():
+def test_{exercise}(benchmark):
     expected = {sample_output if type(sample_output) == int else f"'{sample_output}'"}
-    result = {exercise}({sample_dataset})
+    result = benchmark({exercise}, {sample_dataset})
     assert expected == result
 """
         )
