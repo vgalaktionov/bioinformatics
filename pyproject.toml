@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "bioinformatics"
+version = "0.1.0"
+description = "A repo with implementations of the exercises in the excellent Bioinformatics Algorithms: An Active Learning Approach (2E)."
+authors = ["Vadim Galaktionov <vadim@galaktionov.nl>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+loguru = "^0.5.3"
+httpx = "^0.21.1"
+beautifulsoup4 = "^4.10.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+flake8 = "^4.0.1"
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

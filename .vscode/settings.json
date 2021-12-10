@@ -4,6 +4,9 @@
   "python.linting.enabled": true,
   "files.exclude": {
     "node_modules": true,
-    ".nyc_output": true
+    ".nyc_output": true,
+    "**/__pycache__": true,
+    "**/__pycache__.*": true,
+    ".pytest_cache": true
   }
 }
