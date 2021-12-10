@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"io/ioutil"
 	"log"
 	"os"
@@ -43,8 +42,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to parse input: %s", err)
 	}
-	log.Printf("running with input: %s", string(input))
-	params[0] = reflect.ValueOf(bytes.Fields(input))
+	inputStr := string(input)
+	log.Printf("running with input: %s", inputStr)
+	params[0] = reflect.ValueOf(strings.Fields(inputStr))
 
 	result := m.Call(params)
 	log.Printf("%s", result)

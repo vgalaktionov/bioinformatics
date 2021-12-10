@@ -1,14 +1,20 @@
 package exercises
 
-func foobar(a []byte, b []byte) string {
-	return ""
-}
+import (
+	"log"
+	"strconv"
 
-func (ex Exercise) BA1B(params [][]byte) string {
-	a := params[0]
-	b := params[1]
+	"github.com/vgalaktionov/bioinformatics/lib"
+)
 
-	result := foobar(a, b)
+func (ex Exercise) BA1B(params []string) []string {
+	text := []byte(params[0])
+	k, err := strconv.Atoi(params[1])
+	if err != nil {
+		log.Fatalf("%s", err)
+	}
+
+	result := lib.FrequentWords(text, k, 0)
 
 	return result
 }

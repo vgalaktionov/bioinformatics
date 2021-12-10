@@ -2,6 +2,7 @@ package lib
 
 import (
 	"bytes"
+	"sort"
 )
 
 func PatternCount(text []byte, pattern []byte) int {
@@ -14,4 +15,33 @@ func PatternCount(text []byte, pattern []byte) int {
 		}
 	}
 	return n
+}
+
+func FrequentWords(text []byte, k int, minFreq int) []string {
+	frequencies := make(map[string]int)
+	lastI := len(text) - k
+	for i := 0; i <= lastI; i++ {
+		kmer := text[i : i+k]
+		_, seen := frequencies[string(kmer)]
+		if !seen {
+			frequencies[string(kmer)] = PatternCount(text[i:], kmer)
+		}
+	}
+
+	keys := make([]string, 0, len(frequencies))
+	for k := range frequencies {
+		keys = append(keys, k)
+	}
+	sort.Slice(keys, func(i, j int) bool {
+		return frequencies[keys[i]] < frequencies[keys[j]]
+	})
+	highest := frequencies[keys[0]]
+	mostFrequent := []string{}
+	for _, k := range keys {
+		freq := frequencies[k]
+		if freq != highest || freq < minFreq {
+			mostFrequent = append(mostFrequent, k)
+		}
+	}
+	return mostFrequent
 }
