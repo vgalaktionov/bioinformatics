@@ -2,6 +2,7 @@ import argparse
 import importlib
 import re
 import sys
+from collections.abc import Iterable
 from pathlib import Path
 
 import httpx
@@ -24,6 +25,9 @@ def run(exercise: str):
     impl = getattr(module, exercise)
     params = sys.stdin.read().split()
     result = impl(params)
+
+    if isinstance(result, Iterable):
+        result = " ".join(str(i) for i in result)
 
     print(result)
 
