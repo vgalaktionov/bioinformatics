@@ -1,5 +1,4 @@
-def hamming_distance(textA: str, textB: str):
-    return sum(textA[i] != textB[i] for i in range(len(textA)))
+from library.algorithms import hamming_distance
 
 
 def ba1g(params: list[str]):
