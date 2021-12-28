@@ -8,7 +8,7 @@ import (
 
 func frequentWordsWithMismatches(text string, k int, d int) []string {
 	frequencies := make(map[string]int)
-	kmers := lib.CharProduct("ACTG", k)
+	kmers := lib.StringProduct("ACTG", k)
 	highest := 0
 	for _, kmer := range kmers {
 		freq := lib.PatternCountApprox(text, kmer, d)

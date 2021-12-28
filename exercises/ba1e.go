@@ -1,7 +1,6 @@
 package exercises
 
 import (
-	"log"
 	"strconv"
 
 	"github.com/vgalaktionov/bioinformatics/lib"
@@ -10,17 +9,11 @@ import (
 func (ex Exercise) BA1E(params []string) []string {
 	genome := params[0]
 	k, err := strconv.Atoi(params[1])
-	if err != nil {
-		log.Fatalf("%s", err)
-	}
+	lib.Check(err)
 	L, err := strconv.Atoi(params[2])
-	if err != nil {
-		log.Fatalf("%s", err)
-	}
+	lib.Check(err)
 	t, err := strconv.Atoi(params[3])
-	if err != nil {
-		log.Fatalf("%s", err)
-	}
+	lib.Check(err)
 
 	result := lib.FindClumps(genome, k, L, t)
 

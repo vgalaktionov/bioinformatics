@@ -181,7 +181,7 @@ func cartN(a ...string) []string {
 	return out
 }
 
-func CharProduct(a string, r int) []string {
+func StringProduct(a string, r int) []string {
 	pools := make([]string, r)
 	for i := 0; i < r; i++ {
 		pools[i] = a
