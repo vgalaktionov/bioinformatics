@@ -1,0 +1,8 @@
+ex:
+    command: 'go run main.go ex $1'
+test:
+    command: 'go test ./...'
+bench:
+    command: 'go test ./... -bench=. -benchmem'
+gen:
+    command: 'go run main.go gen $1'
