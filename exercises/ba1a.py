@@ -10,3 +10,7 @@ def test_ba1a(benchmark):
     expected = 2
     result = benchmark(ba1a, ["GCGCG", "GCG"])
     assert expected == result
+
+
+def test_ba1a_large(benchmark):
+    benchmark(ba1a, open("data/rosalind_ba1a.txt").read().strip().split())
