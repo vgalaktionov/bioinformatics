@@ -10,10 +10,10 @@ E.g:
 
 ```bash
 # pbpaste is how you write clipboard contents to the terminal on MacOS
-pbpaste | robo ex ba1c
+pbpaste | npm run ba1a
 
 # running the downloaded dataset for rosalind
-robo ex ba1b <data/rosalind_ba1b.txt
+npm run ex ba1b <data/rosalind_ba1b.txt
 ```
 
 ## Generating an exercise scaffold
@@ -21,24 +21,17 @@ robo ex ba1b <data/rosalind_ba1b.txt
 The entrypoint expects the name of the exercise as the first and only CLI argument.
 
 ```bash
-robo gen
+npm run gen ba1b
 ```
 
-## Tests
+## Tests + benchmarks
 
 ```bash
-robo test
-```
-
-## Benchmarks
-
-```bash
-robo bench
+npm t
 ```
 
 ## Development setup
 
 ```bash
-curl -sf https://gobinaries.com/tj/robo | sh
-go mod download
+npm ci
 ```

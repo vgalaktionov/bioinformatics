@@ -1,3 +1,11 @@
 {
-  "files.exclude": {}
+  "python.linting.mypyEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/__pycache__.*": true,
+    ".pytest_cache": true,
+    "node_modules": true
+  }
 }
